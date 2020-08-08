@@ -82,7 +82,7 @@ tf.image.resize(
 plt.imshow(var, cmap='gray')  # graph it
 plt.show()  # display!
 
-
+# F!$1h#i
 # # Loads the weights
 # model1.load_weights(checkpoint_path)
 
