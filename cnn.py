@@ -94,18 +94,18 @@ img = (np.expand_dims(img,0))
 model1 = create_model()
 
 # Evaluate the model
-# loss, acc = model1.evaluate(X,  y, verbose=2)
-# print("Untrained model, accuracy: {:5.2f}%".format(100*acc))
-# print(model1.predict(img))
+loss, acc = model1.evaluate(X,  y, verbose=2)
+print("Untrained model, accuracy: {:5.2f}%".format(100*acc))
+print(model1.predict(img))
 
 
 # Loads the weights
-model1.load_weights(checkpoint_path)
+# model1.load_weights(checkpoint_path)
 
-# Re-evaluate the model
-loss,acc = model1.evaluate(X,  y, verbose=2)
-print("Restored model, accuracy: {:5.2f}%".format(100*acc))
-# mostrar imagem
+# # Re-evaluate the model
+# loss,acc = model1.evaluate(X,  y, verbose=2)
+# print("Restored model, accuracy: {:5.2f}%".format(100*acc))
+# # mostrar imagem
 
 
 class_names = ['Dog', 'Cat']
