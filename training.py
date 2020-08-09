@@ -6,11 +6,6 @@ from tqdm import tqdm
 
 DATADIR = "D:/Nova pasta/PetImages"
 CATEGORIES = ["Dog", "Cat"]
-
-IMG_SIZE = 150
-
-new_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))
-
 training_data = []
 
 def create_training_data():
@@ -33,6 +28,11 @@ def create_training_data():
             #    print("OSErrroBad img most likely", e, os.path.join(path,img))
             #except Exception as e:
             #    print("general exception", e, os.path.join(path,img))
+
+IMG_SIZE = 150
+
+# new_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))
+
 
 create_training_data()
 

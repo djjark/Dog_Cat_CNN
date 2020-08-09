@@ -122,8 +122,12 @@ def plot_image(i, predictions_array, true_label, img):
   plt.grid(False)
   plt.xticks([])
   plt.yticks([])
-
-  plt.imshow(img, cmap=plt.cm.binary)
+  k=[]
+  for a in Xluffy[i]:
+    for j in range(IMG_SIZE):
+      k.append(a[j][0])
+  k = np.reshape(k,(IMG_SIZE,IMG_SIZE))
+  plt.imshow(k, cmap='gray')
 
   predicted_label = np.argmax(predictions_array)
   if predicted_label == true_label:
@@ -141,29 +145,29 @@ def plot_value_array(i, predictions_array, true_label):
   plt.grid(False)
   plt.xticks([])
   plt.yticks([])
-  thisplot = plt.bar(range(10), predictions_array, color="#777777")
+  thisplot = plt.bar(range(len(class_names)), predictions_array, color="#777777")
   plt.ylim([0, 1])
   predicted_label = np.argmax(predictions_array)
 
   thisplot[predicted_label].set_color('red')
   thisplot[true_label].set_color('blue')
 
-plot_value_array(0, predictions_single, y)
-_ = plt.xticks(range(10), class_names, rotation=45)
+plot_value_array(0, predictions_single, yluffy)
+_ = plt.xticks(range(len(class_names)), class_names, rotation=45)
 
 np.argmax(predictions_single[0].shape)
 
 # Plota o primeiro X test images, e as labels preditas, e as labels verdadeiras.
 # Colore as predições corretas de azul e as incorretas de vermelho.
-num_rows = 5
-num_cols = 3
+num_rows = 1
+num_cols = 5
 num_images = num_rows*num_cols
 plt.figure(figsize=(2*2*num_cols, 2*num_rows))
 for i in range(num_images):
   plt.subplot(num_rows, 2*num_cols, 2*i+1)
-  plot_image(i, predictions, y, X[1])
+  plot_image(i, predictions, yluffy, Xluffy[i])
   plt.subplot(num_rows, 2*num_cols, 2*i+2)
-  plot_value_array(i, predictions, y)
+  plot_value_array(i, predictions, yluffy)
 plt.show()
 
 
