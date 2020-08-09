@@ -92,10 +92,10 @@ def predicted(model1, Xluffy):
 
 # create model
 model1 = create_model()
-fit_model(model1)
+# fit_model(model1)
 # Loads the weights
-# model1.load_weights(checkpoint_path)
-# evalmodel(model1)
+model1.load_weights(checkpoint_path)
+evalmodel(model1)
 predicted(model1, Xluffy)
 
 
