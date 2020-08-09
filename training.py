@@ -20,7 +20,7 @@ def create_training_data():
                 new_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))  # resize to normalize data size
                 training_data.append([new_array, class_num])  # add this to our training_data
                 count+=1
-                if count>1000:
+                if count>2000:
                     break
             except Exception as e:  # in the interest in keeping the output clean...
                 pass
@@ -39,9 +39,6 @@ create_training_data()
 import random
 
 random.shuffle(training_data)
-
-for sample in training_data[:10]:
-    print(sample[1])
 
     
 X = []
